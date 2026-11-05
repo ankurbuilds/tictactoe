@@ -4,6 +4,12 @@ let player2=prompt("ENTER NAME OF PALYER 2");
 let nameplayer1 =document.querySelector(".text1");
 let nameplayer2 =document.querySelector(".text2");
 
+let box1 = document.querySelector(".player1");
+let box2 = document.querySelector(".player2");
+
+let winsound = document.querySelector("#winsound");
+let drawsound = document.querySelector("#drawsound");
+
 nameplayer1.innerText = nameplayer1.innerText + player1;
 console.log(nameplayer1);
 nameplayer2.innerText = nameplayer2.innerText + player2;
@@ -23,7 +29,7 @@ let msgcontainer=document.querySelector(".msg-container");
 let msg=document.querySelector("#msg");
 let straw=false;
 let turno=true; // true = O trun : false = X turn
-
+box1.classList.add("turns");
 
 let scoreplayer1 = document.querySelector(".score1");
 let scoreplayer2 = document.querySelector(".score2");
@@ -47,6 +53,14 @@ boxes.forEach((box) => {
         turno=!turno;
         count++;
         box.disabled = true ;
+        if(turno){
+            box1.classList.add("turns");
+            box2.classList.remove("turns");
+        }
+        else{
+            box2.classList.add("turns");
+            box1.classList.remove("turns");
+        }
         checkwinner();
         if (count===9 && straw===false) {
             draw()
@@ -60,6 +74,12 @@ const restartgame = () =>{
     count=0;
     msgcontainer.classList.add("hide");
     straw=false;
+    box1.classList.add("turns");
+    box2.classList.remove("turns");
+    winsound.pause();
+    winsound.load();
+    drawsound.pause();
+    drawsound.load();
 }
 
 const enableboxes = () => {
@@ -76,14 +96,13 @@ const dissableboxes = () => {
 }
 const draw =() => {
     drawxy++;
+    drawsound.play();
     msg.innerText = `Alas! No one won the game`;
     msgcontainer.classList.remove("hide");
     dissableboxes()
 }
 const showwinner =(winner) => {
-
-
-
+    winsound.play();
     if(winner==="O"){
         wino++;
         scoreplayer1.innerText = "SCORE : " + wino;
@@ -93,7 +112,6 @@ const showwinner =(winner) => {
         dissableboxes()
         straw=true;
 }
-
     if(winner==="X"){
         winx++;
         scoreplayer2.innerText = " SCORE : " + winx;
@@ -107,7 +125,6 @@ const showwinner =(winner) => {
 
 const checkwinner = () => {
     for (let pattern of winPatterns) {
-    
     let pos1 = boxes[pattern[0]].innerText;
     let pos2 = boxes[pattern[1]].innerText;
     let pos3 = boxes[pattern[2]].innerText;

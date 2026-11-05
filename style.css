@@ -73,6 +73,13 @@ body{
 }
 .text{
     color:aliceblue;
+    font-size :3vmin;
+}
+.score1{
+    margin-top: 50vmin;
+}
+.score2{
+    margin-top: 50vmin;
 }
 .player1{
     display: flex;
@@ -88,8 +95,12 @@ body{
     width: 50vmin;
 }
 
-.borderbox{
-    border: 2px solid transparent;
+.turns{
+    border: 2px solid #13346b;
+    box-shadow: 0 0 15px #13346b;
+    border-radius: 10px;
+    transform: scale(1.04);
+    transition: all 0.5s ease-in-out;
 }
 
 .border {
