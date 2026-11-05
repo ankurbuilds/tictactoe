@@ -1,0 +1,84 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+body{
+    background-color : #0A0908;
+    text-align : center;
+}
+.container{
+    height : 70vmin;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+.game{
+    height : 60vmin;
+    width : 60vmin; 
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    align-items : center;
+    gap : 1.5vmin;
+}
+.box{
+    height : 18vmin;
+    width : 18vmin;
+    font-size : 8vmin;
+    background-color : #22333B;
+    color: #EAE0D5;
+    border-radius : 1vmin ;
+    border: 0.23vmin solid #EAE0D5;
+}
+#reset{
+    height : 5vmin;
+    width : 20vmin;
+    font-size : 1.8vmin;
+    background-color : #3E5C76;
+    color:#F0EBD8;
+    border-radius : 1vmin ;
+    border: 0.33vmin solid #1D2D44;
+}
+#newgame{
+    height : 5vmin;
+    width : 20vmin;
+    font-size : 1.8vmin;
+    background-color : #3E5C76;
+    color:#F0EBD8;
+    border-radius : 1vmin ;
+    border: 0.33vmin solid #1D2D44;
+    margin: 7vmin;
+
+}
+#msg{
+    color: #C6AC8F;
+    font-size: 4vmin;
+}
+.msg-container{
+    height :100vmin;
+    display :flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.hide{
+    display : none ;
+}
+#heading{
+    color: whitesmoke;
+    padding:5vmin;
+    text-decoration: underline dashed ;
+    border-bottom:#F0EBD8 ;
+}
+.text{
+    color:aliceblue;
+}
+.player1{
+    display: flex;
+    justify-content:center;
+    background-color: aqua;
+    
+}
+.player2{
+    display: flex;
+}
