@@ -1,4 +1,4 @@
-let player1=prompt("ENTER NAME OF PALYER 1");
+let player1=prompt("ENTER NAME OF PLAYER 1");
 let player2=prompt("ENTER NAME OF PALYER 2");
 
 let nameplayer1 =document.querySelector(".text1");
@@ -9,6 +9,9 @@ let box2 = document.querySelector(".player2");
 
 let winsound = document.querySelector("#winsound");
 let drawsound = document.querySelector("#drawsound");
+
+let container =document.querySelector(".container");
+let restart = document.querySelector(".restart");
 
 nameplayer1.innerText = nameplayer1.innerText + player1;
 console.log(nameplayer1);
@@ -80,17 +83,19 @@ const restartgame = () =>{
     winsound.load();
     drawsound.pause();
     drawsound.load();
+    container.classList.remove("hide");
+    restart.classList.remove("hide");
 }
 
 const enableboxes = () => {
-    for (box of boxes) {
+    for (let box of boxes) {
         box.disabled=false;
         box.innerText="";
     }
 }
 
 const dissableboxes = () => {
-    for (box of boxes) {
+    for (let box of boxes) {
         box.disabled=true;
     }
 }
@@ -100,6 +105,8 @@ const draw =() => {
     msg.innerText = `Alas! No one won the game`;
     msgcontainer.classList.remove("hide");
     dissableboxes()
+    container.classList.add("hide");
+    restart.classList.add("hide");
 }
 const showwinner =(winner) => {
     winsound.play();
@@ -111,6 +118,8 @@ const showwinner =(winner) => {
         msgcontainer.classList.remove("hide");
         dissableboxes()
         straw=true;
+        container.classList.add("hide");
+        restart.classList.add("hide");
 }
     if(winner==="X"){
         winx++;
@@ -120,6 +129,8 @@ const showwinner =(winner) => {
         msgcontainer.classList.remove("hide");
         dissableboxes()
         straw=true;
+        container.classList.add("hide");
+        restart.classList.add("hide");
     }
 }
 
